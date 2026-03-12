@@ -202,7 +202,10 @@ app.get("/live", async (req, res) => {
   if (!url) return res.status(400).json({ error: "Falta ?url=" });
   if (!SCRAPER_URL) return res.status(503).json({ error: "SCRAPER_URL no configurado" });
   try {
-    const r = await fetch(`${SCRAPER_URL}/scrape?url=${encodeURIComponent(url)}`, { timeout: 25000 });
+    const r = await fetch(`${SCRAPER_URL}/scrape?url=${encodeURIComponent(url)}`, {
+      timeout: 25000,
+      headers: { "ngrok-skip-browser-warning": "true" }
+    });
     res.json(await r.json());
   } catch (e) { res.status(500).json({ error: `Scraper no disponible: ${e.message}` }); }
 });
