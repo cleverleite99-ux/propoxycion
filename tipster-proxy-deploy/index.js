@@ -2,7 +2,7 @@ const express = require("express");
 const fetch = require("node-fetch");
 
 const app = express();
-const API_KEY = "931a681baa0d020688d7d87d040e667a";
+const API_KEY = "c3e51bf123643e4c4d01a3d1b5332499";
 const API_BASE = "https://v3.football.api-sports.io";
 
 // Allow requests from anywhere (the Android app)
